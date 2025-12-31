@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-macos-border;
+  }
+  
+  body {
+    @apply bg-macos-bg text-macos-text-primary font-sans antialiased;
+  }
+  
+  /* MacOS-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-macos-gray-400 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-macos-gray-500;
+  }
+}
+
+@layer components {
+  /* MacOS-style card */
+  .card-macos {
+    @apply bg-macos-surface rounded-macos-lg shadow-macos border border-macos-border;
+  }
+  
+  /* MacOS-style button */
+  .btn-macos {
+    @apply px-4 py-2 rounded-macos font-medium transition-all duration-200;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  .btn-primary {
+    @apply btn-macos bg-macos-blue text-white;
+    @apply hover:bg-macos-blue-dark;
+  }
+  
+  .btn-secondary {
+    @apply btn-macos bg-macos-gray-200 text-macos-text-primary;
+    @apply hover:bg-macos-gray-300;
+  }
+  
+  /* MacOS-style input */
+  .input-macos {
+    @apply px-4 py-2.5 rounded-macos border border-macos-border;
+    @apply bg-macos-surface text-macos-text-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-macos-blue focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+  
+  /* MacOS-style glass effect */
+  .glass-macos {
+    @apply bg-white/80 backdrop-blur-macos;
+    @apply border border-white/20 shadow-macos-lg;
+  }
+  
+  /* Agent badge */
+  .badge-agent {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-caption font-medium;
+  }
+  
+  /* Message bubble */
+  .message-bubble {
+    @apply px-4 py-3 rounded-macos max-w-[80%] break-words;
+  }
+  
+  .message-user {
+    @apply message-bubble bg-macos-blue text-white ml-auto;
+  }
+  
+  .message-assistant {
+    @apply message-bubble bg-macos-surface border border-macos-border;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Markdown styling */
+.markdown-content {
+  @apply text-body leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-title-lg font-bold mt-6 mb-4 text-macos-text-primary;
+}
+
+.markdown-content h2 {
+  @apply text-title font-bold mt-5 mb-3 text-macos-text-primary;
+}
+
+.markdown-content h3 {
+  @apply text-body-lg font-semibold mt-4 mb-2 text-macos-text-primary;
+}
+
+.markdown-content p {
+  @apply mb-4 text-macos-text-primary;
+}
+
+.markdown-content ul, .markdown-content ol {
+  @apply mb-4 ml-6;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
+
+.markdown-content code {
+  @apply px-1.5 py-0.5 rounded bg-macos-gray-200 text-caption font-mono;
+}
+
+.markdown-content pre {
+  @apply p-4 rounded-macos bg-macos-gray-900 text-white overflow-x-auto mb-4;
+}
+
+.markdown-content pre code {
+  @apply p-0 bg-transparent text-white;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-macos-blue pl-4 italic text-macos-text-secondary mb-4;
+}
+
+.markdown-content a {
+  @apply text-macos-blue hover:underline;
+}
+
+.markdown-content table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-content th {
+  @apply bg-macos-gray-100 px-4 py-2 text-left font-semibold border border-macos-border;
+}
+
+.markdown-content td {
+  @apply px-4 py-2 border border-macos-border;
+}
